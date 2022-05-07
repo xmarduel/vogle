@@ -19,8 +19,6 @@ SWIG_DEPENDANCIES =  $(SWIG_INTERFACE_FILE)
 DYLIBS_LINKED_TO_BUNDLE = $(LIB_VOGLE)
 #
 #
-TOP = ../../..
-#
-include $(TOP)/PYTHON_EXTENSIONS/python_extension.mk
+include python_extension.mk
 #
 #

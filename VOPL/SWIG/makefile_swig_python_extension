@@ -19,12 +19,10 @@ SWIG_DEPENDANCIES =  $(SWIG_INTERFACE_FILE)
 DYLIBS_LINKED_TO_BUNDLE = $(LIB_VOGLE) $(LIB_VOPL)
 #
 #
-TOP = ../../..
-#
-# find vogle.h header
-CFLAGS = -I/Users/xavier/DEVELOPMENT/MESCHACH_WORK/MESCHACH_VOGLE/VOGLE/src
+# find vopl.h header
+CFLAGS = -I../SRC
 #
 #
-include $(TOP)/PYTHON_EXTENSIONS/python_extension.mk
+include python_extension.mk
 #
 #
