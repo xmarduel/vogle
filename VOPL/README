@@ -1,0 +1,36 @@
+
+NOTE: This is a (very) beta VOPL version 2.
+
+new:
+	- sync with VOGLE 2.0 beta
+	- 2D contours
+	- sub panels as in pgplot
+
+The directories in this directory contain the source for the VOPL library,
+and the graph plotting program gpp.
+ 
+   - As many windows as wished
+
+   - customs XAW or MOTIF widgets
+
+
+
+They are as follows:
+
+	docs		contains the documentation such as there is.
+
+	examples	some C and FORTRAN example programs.
+
+	gpp		contains the source for the plotting program gpp.
+
+	src		contains the source for the VOPL library and the
+			source for the FORTRAN interfaces.
+
+VOPL is a library of routines for doing fits and graph plots written using
+the VOGLE graphics library. We are still developing VOPL so constructive 
+comments and Beer are always welcome.
+
+This software is public domain and may be used for any purpose commercial or
+otherwise. It is offered without any guarantee as to its suitability for any
+purpose or as to the sanity of its writers. We do ask that the source is 
+passed on to anyone that requests a copy.

@@ -1,0 +1,14 @@
+
+Some of the data files in this directory need to have gpp
+run on them with certain options. They are the following:
+
+data2	- gpp needs to be run with -X and -Y	(log10 scaling)
+
+data3	- gpp needs to be run with -l		(least squares fit)
+
+data4	- gpp needs to be run with -P		(Power equation fit)
+
+data5	- gpp needs to be run with -G		(Saturated growth fit)
+
+data1 doesn't particulary need anything, but demos some of the
+intricacies of the input language.

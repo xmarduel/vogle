@@ -1,0 +1,17 @@
+#!/bin/sh
+PATH=$PATH:/usr/local/netpbm
+export PATH
+# this is the p6to script used by the VOGLE p6 driver
+case "$P6TO" in
+	TIFF) ppmtogif > $$.tiff # gif file
+	;;
+	PNG) pnmtopng >$$.png # tiff file
+	;;
+	XBM) 'ppmtopgm|pgmtopbm|pbmtoxbm' > $$.xbm # greyscale X11 bitmap
+	;;
+*)
+cat > $$_p6.ppm
+;;
+esac
+exit
+

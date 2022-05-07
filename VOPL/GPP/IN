@@ -1,0 +1,9 @@
+This is an example for gpp(1)
+type xy
+This is the x-axis
+This is the y-axis
+x vs y1
+axes xy
+0 0 
+1 1
+plot xy

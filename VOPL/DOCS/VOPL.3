@@ -1,0 +1,346 @@
+.TH VOPL 3  "07 October 1993" "VOPL 1.2"
+.UC 4
+.SH NAME
+VOPL \- A very ordinary plotting library.
+
+.SH DESCRIPTION
+.LP
+.I VOPL
+is a library of C routines for doing graph plots. It handles the a variety
+of fits and scalings, together with providing defaults for positioning graph
+titles, axis titles, and labels. 
+.I VOPL
+may be called from C or FORTRAN.
+.TP
+.I adjustscale(points, number, axis)
+Adjust the auto scaling on axis axis for the points in points.
+.nf
+                
+	Fortran:
+		subroutine adjustscale(points, number, axis)
+		real points(number)
+		integer number
+		character *1 axis
+
+	C:    
+		adjustscale(points, number, axis)
+			float	points[];
+			int	number;
+			char	axis;
+
+.fi
+.TP
+.I range(min, max, axis)
+Specify the range min to max for the axis axis.
+.nf
+
+	Fortran:
+		subroutine range(min, max, axis)
+		real min, max
+		character *1 axis
+
+	C:
+		range(min, max, axis)
+			float	min, max;
+			char	axis;
+
+.fi
+.TP
+.I graphtitle(title)
+Specify the title for the graph.
+.nf
+
+	Fortran:
+		subroutine graphtitle(title)
+		character*(*) title
+
+	C:
+		graphtitle(title)
+			char	*title;
+
+.fi
+.TP
+.I drawtitle()
+Draw the graph title. Note: this is done by drawaxes2, and drawaxes.
+.nf
+
+	Fortran:
+		subroutine drawtitle()
+
+	C:
+		drawtitle()
+
+.fi
+.TP
+.I axistitle(title, axis)
+Specify the title for the axis axis.
+.nf
+
+	Fortran:
+		subroutine axistitle(title, axis)
+		character*(*) title
+		character *1 axis
+
+	C:
+		axistitle(title, axis)
+			char	*title, axis;
+
+.fi
+.TP
+.I plot2(x, y, n)
+Plot the n points in the array x and y.
+.nf
+
+	Fortran:
+		subroutine plot2(x, y, n)
+		real x(n), y(n)
+		integer n
+
+	C:
+		plot2(x, y, n)
+			float	x[], y[];
+			int	n;
+
+.fi
+.TP
+.I fit(type)
+Specify the fit type used to plot the data. Default straight line fit.
+.nf
+
+	Fortran:
+		subroutine fit(type)
+		integer type
+
+	C:
+		fit(type)
+			int type;
+
+	Current fit types are:
+		
+		0	- 	No lines at all.
+		1	-	Straight line fit.
+		2	-	Cubic spline fit.
+		3	-	Least squares fit.
+		4	-	Power equation fit.
+		5	-	Saturated growth rate fit.
+
+.fi
+.TP
+.I scaling(type, axis)
+Specify the scaling type for axis axis. Default linear.
+.nf
+
+	Fortran:
+		subroutine scaling(type, axis)
+		integer type
+		character *1 axis
+
+	C:
+		scaling(type, axis)
+			int	type;
+			char	axis;
+
+.fi
+	Current scaling types are 0 for
+.IR linear
+scaling, 1 for
+.IR logarithmic
+scaling.
+
+.TP
+.I endslopes(a, b)
+Specify the endslopes for a cubic spline fit.
+.nf
+
+	Fortran:
+		subroutine endslopes(a, b)
+		real a, b
+
+	C:
+		endslopes(a, b)
+			float	a, b;
+
+.fi
+.TP
+.I degree(deg)
+Specify the degree for the least-squares fit. Default 3.
+.nf
+
+	Fortran:
+		subroutine degree(deg)
+		integer deg
+
+	C:
+		degree(deg)
+			int	deg;
+
+.fi
+.TP
+.I gridspacing(n, axis)
+Specify at what n'th tickmarks the grid should be drawn at. Default
+zero (no grid).
+.nf
+
+	Fortran:
+		subroutine gridspacing(n, axis)
+		integer n
+		character *1 axis
+
+	C:
+		gridspacing(n, axis)
+			int	n;
+			char	axis;
+
+.fi
+.TP
+.I tickmarks(number, axis)
+Specify the number of tickmarks on the axis axis.
+.nf
+
+	Fortran:
+		subroutine tickmarks(number, axis)
+		integer number
+		character *1 axis
+
+	C:
+		tickmarks(number, axis)
+			int	number;
+			char	axis;
+
+.fi
+.TP
+.I minorticks(number, axis)
+Specify the number of minor tickmarks between the major ticks on the axis axis.
+.nf
+
+	Fortran:
+		subroutine minorticks(number, axis)
+		integer number
+		character *1 axis
+
+	C:
+		minorticks(number, axis)
+			int	number;
+			char	axis;
+
+.fi
+.TP
+.I drawaxis(axis)
+Draw the axis given by axis.
+.nf
+
+	Fortran:
+		subroutine drawaxis(axis)
+		character *1 axis
+
+	C:
+		drawaxis(axis)
+			char	*axis;
+
+.fi
+.TP
+.I drawaxes()
+Draw the x, y, and z axes.
+.nf
+
+	Fortran:
+		subroutine drawaxes()
+
+	C:
+		drawaxes()
+
+.fi
+.TP
+.I drawaxes2()
+Draw the x and y axes.
+.nf
+
+	Fortran:
+		subroutine drawaxes2()
+
+	C:
+		drawaxes2()
+
+.fi
+.TP
+.I annotation(format, axis)
+Specify the format for the labels at the tickmarks on the axis. If no
+annotation is specified the default is used. An empty string turns
+it off. 
+.nf
+
+	Fortran:
+		subroutine annotation(format, axis)
+		character*(*) format
+		character *1 axis
+
+	C:
+		annotation(format, axis)
+			char	*format, axis
+
+.fi
+.TP
+.I graphprecision(number)
+Specify the number of line segments making up a curve in the graph.
+.nf
+
+	Fortran:
+		subroutine graphprecision(number)
+		integer number
+
+	C:
+		graphprecision(number)
+			int	number;
+
+.fi
+.TP
+.I marker(string)
+Specify the current marker string which will be drawn centered over data points.
+.nf
+
+	Fortran:
+		subroutine marker(string)
+		character*(*) string
+
+	C:
+		marker(string)
+			char	*string;
+
+.fi
+.TP
+.I markerspacing(num)
+Specify the marker spacing. Default 1.
+.nf
+
+	Fortran:
+		subroutine markerspacing(num)
+		integer num
+
+	C:
+		markerspacing(num)
+			int	num;
+
+.fi
+.TP
+.I markerscale(scale)
+Specify a scaling factor for the size of markers. Default 1.0.
+.nf
+
+	Fortran:
+		subroutine markscale(x, y)
+		real x, y
+
+	C:
+		markscale(x, y)
+			float	x, y;
+
+.nf
+.SH SEE ALSO
+.IR VOGLE(3), GPP(3)
+.LP
+.nf
+.SH BUGS
+.LP
+The manual page isn't finished.
+There isn't really any Z-axis stuff yet.
+The Whole thing isn't finished and could stand a total recode.

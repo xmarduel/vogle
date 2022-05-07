@@ -1,0 +1,101 @@
+NOTE: This is a (very) beta VOGLE version 2.
+
+Main new features are:
+	Multiple window support. You can now have multiple windows open
+	on multiple devices. That is, each window is has it's own private
+	data structure and drivers.
+
+	Deprecation of vinit, vnewdev, pushdev, popdev, and vexit
+	(replaced by winopen, windel, winset)
+		but vinit and vexit still work. Haven't looked at pushdev
+		and popdev.
+	A very primitive event handling scheme (for resize/redraw of windows.
+	ANSI C.
+	3D picking. (Might be a bit hard to use).
+	Improved error handling. You can have your own error handler, and
+	you can stop vogle from crapping out on errors.
+
+	New text features (slant, boldness).
+	Numerous bug fixes, and new bugs added.
+
+	pushpos/poppos (saves the current graphics position on a stack.
+
+Main things missing are:
+	No PC drivers yet. In fact, the only drivers that work
+	are X11, ps, ppm and hpdxy.
+
+	The f77/pc interfaces need updating.
+
+	The docs seriously need to be updated. We have a person who will
+	make HTML docs one day, but he has other things that *have* to
+	be done.
+
+-----------------------
+
+
+The directories in this directory contain the source for the VOGLE library.
+
+They are as follows:
+
+	docs		contains the documentation such as there is.
+
+	drivers		contains the source to a variety of device drivers,
+			currently restricted to: postscript, sun workstation, 
+			apollo workstations, X11 (R4 & R5), tektronix 
+			(401x), hpgl, dxy, and the ibm pc cards: hercules mono,
+			cga, ega, vga and sigma, MS-windows and HP graphics
+			terminals..
+
+	examples	contains some C and FORTRAN programs useful both in
+			testing and (hopefully) learning how to use it.
+
+	hershey		contains the source for generating fonts and the
+			hershey data for the occidental and oriental character
+			sets.
+
+	src		contains the source for the C VOGLE interface, and the 
+			source for the FORTRAN and PASCAL interfaces where 
+			available.
+			
+VOGLE is a device portable graphics library that is loosely based on the
+Silicon Graphics Iris GL.  It was also inspired partly by the DIGS library 
+developed at the U.S. Naval Academy under the guidance of Prof David Rogers.
+
+As we will be continuing development on VOGLE we will gratefully accept any
+bug fixes or enhancements such as new drivers, etc... People here mainly use it
+to move engineering type software between IBM PCs and Sun workstations but we
+expect not only our equipment, but our requirements to change, so if you find
+it usefull for anything in particular we wouldn't mind hearing from you as
+well.
+
+VOGLE has been used by others as the basis of several Silicon Graphics GL
+compatible libraries. The authors of VOGLE have also produced a GL compatible
+library called VOGL (Very Ordinary GL). This library should be available at
+the same site that you obtained VOGLE.
+
+This software is public domain and may be used for any purpose commercial or
+otherwise. It is offered without any guarantee as to its suitability for any
+purpose or as to the sanity of its writers. We do ask that the source is
+passed on to anyone that requests a copy, and that people who get copies don't
+go round claiming they wrote it.
+
+Although VOGLE is public domain we will drink any quantity of Beer you send to
+us.
+
+Regards,
+
+	Eric H. Echidna
+
+Email:
+	echidna@ecr.mu.oz.au
+
+	New Vogle mailing list: vogle@ecr.mu.oz.au
+	    (vogle-request@ecr.mu.oz.au to get placed on the list).
+
+Snail mail correspondance and alcoholic beverages should be directed to:
+
+	The Software Support Programmer
+	Department Of Engineering Computer Resources
+	Faculty Of Engineering
+	University Of Melbourne Vic 3052
+	Australia

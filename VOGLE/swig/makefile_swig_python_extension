@@ -1,0 +1,26 @@
+#! /bin/sh
+#
+#/////////////////////////////////////////////////////////
+#//
+#// makefile for interface file for VOGLE
+#//
+#/////////////////////////////////////////////////////////
+#
+MODULE               = vogle
+#
+PYTHON_EXTENSION     = $(MODULE).so
+SWIG_INTERFACE_FILE  = $(MODULE).i
+#
+SRC_WRAP = $(MODULE)_wrap.c	
+OBJ_WRAP = $(SRC_WRAP:.c=.o)
+#
+SWIG_DEPENDANCIES =  $(SWIG_INTERFACE_FILE)
+#
+DYLIBS_LINKED_TO_BUNDLE = $(LIB_VOGLE)
+#
+#
+TOP = ../../..
+#
+include $(TOP)/PYTHON_EXTENSIONS/python_extension.mk
+#
+#

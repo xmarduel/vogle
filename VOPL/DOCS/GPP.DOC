@@ -1,0 +1,198 @@
+
+
+
+GPP(1)                   USER COMMANDS                     GPP(1)
+
+
+
+NAME
+     gpp - a program for plotting graphs
+
+SYNOPSIS
+     gpp [ -l<d> ] [ -s <s1> <s2> ] [ -r<fact> ] [ -S ] [ -P ]
+     [ -G ] [ -c ] [ -m<n> ] [ -w<n> ] [ -g ] [ -p<n> ] [ -L ]
+     [ -x xmin xmax ] [ -y ymin ymax ] [ -X ] [ -Y ]
+     [ -f<fontname> ] [ -d<device> ] file or -
+
+
+DESCRIPTION
+     This program displays multiple  graphs  with  various  curve
+     fitting  and axis options.  The following options are avail-
+     able:
+
+
+     -l<d>
+          Perform a least square fit of degree "d" on each curve.
+
+
+     -s <s1> <s2>
+          Perform a cubic spline fit  on  each  curve,  with  end
+          slopes s1 and s2 (Ie. a clamped spline)
+
+
+     -r <fact>
+          Reduce (if fact < 1.0) or enlarge (if fact >  1.0)  the
+          entire plot.
+
+
+     -S   Perform a cubic spline fit on each curve using a cardi-
+          nal  spline  and the VOGLE(3) routine curve().  The end
+          slopes are calculated  as  the  tangent  to  the  curve
+          formed  by  the  lines  connecting the first and second
+          points and the last and next to last points.
+
+
+     -P   Perform a power equation fit on each curve.
+
+
+     -G   Perform a saturated growth rate fit on each curve.
+
+
+     -m<n>
+          Place a marker at every "n"th data point on each curve.
+
+
+     -g<n>
+          Place a grid over the graph, with grid spacing of every
+          nth tickmark.
+
+
+
+
+
+VOGLE 1.0          Last change: 05 June. 1989                   1
+
+
+
+
+
+
+GPP(1)                   USER COMMANDS                     GPP(1)
+
+
+
+     -p<n>
+          Draws only markers at every <n>th data point
+
+
+     -L   Print legends if they are provided.
+
+
+     -x xmin xmax
+          Specify absolute x  scaling  values.  This  option  by-
+          passes the auto-scaling of the x-axis values.
+
+
+     -y ymin ymax
+          Specify absolute y  scaling  values.  This  option  by-
+          passes the auto-scaling of the y-axis values.
+
+
+     -X   Draw the X-axis using a logarithmic scale.
+
+
+     -Y   Draw the Y-axis using a logarithmic scale.
+
+
+     -f<fontname>
+          Use font name  fontname  where  fontname  is  any  font
+          available in the VOGLE(3) library.
+
+
+     -d<device>
+          Use the output device "device". These are  the  devices
+          compiled  into the VOGLE(3) library. Some examples are:
+          postscript, hpgl, tek, sun etc.
+
+
+     file The name of the input file. If it is a minus '-'  stdin
+          is assumed.
+
+     The input file contains two lines at the type which describe
+     the  graph.  The  first line gives the title, and the second
+     line the type. At the moment  the  only  type  supported  is
+     "xy".  The  axes titles appropriate to the type of the graph
+     are on the lines following the  type  statement.  After  the
+     axes  titles  the first legend title is given followed by an
+     axes descriptor on the next line.  gpp then reads in  points
+     appropriate  to  the axes descriptor until it reaches a plot
+     statement. This tells it to save the  current  points  as  a
+     seperate  plot. It then looks for another legend followed by
+     an axes statement, and  the  cycle  continues.  Legends  and
+     titles may be blank lines.
+
+          A title for the graph
+          type xy
+
+
+
+VOGLE 1.0          Last change: 05 June. 1989                   2
+
+
+
+
+
+
+GPP(1)                   USER COMMANDS                     GPP(1)
+
+
+
+          A title for the x-axis
+          A title for the y-axis
+          legend for the first plot
+          axes xy
+          x y
+          x y
+          . .
+          . .
+          plot xy
+          legend for the second plot
+          axes x
+          x
+          x
+          .
+          .
+          plot xy
+
+
+FILES
+     /usr/local/lib/hershey/*      Font files.
+
+SEE ALSO
+     VOGLE(3), VOPL(3).
+
+BUGS
+     There are too many options.  There may be only  1024  points
+     per  trace.   Interpretation  of  Endslopes for splines when
+     using logarithmic scalings is Sketchy.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VOGLE 1.0          Last change: 05 June. 1989                   3
+
+
+

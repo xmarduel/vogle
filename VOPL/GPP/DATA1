@@ -1,0 +1,45 @@
+This is an example for gpp(1)
+type xy
+This is the x-axis
+This is the y-axis
+x vs y1
+axes xy
+0 0 
+1 10
+2 30
+3 50
+4 70
+5 90
+6 150
+7 120
+9 100
+10 10
+plot xy
+x vs y3
+axes xy
+0.0	70.0
+1.0	30.0
+2.0	50.0
+3.0	45.0
+4.0	31.0
+5.0	15.0
+6.0	29.0
+7.0	98.0
+9.0	52.0
+10.0	30.0
+12.0	65.0
+plot xy
+x vs y2
+axes y
+    50.0
+    60.0
+    50.0
+    55.0
+    31.0
+    25.0
+    29.0
+    28.0
+    32.0
+   40.0
+   55.0
+plot xy

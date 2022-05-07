@@ -1,0 +1,208 @@
+.TH GPP 1 "07 October. 1993" "VOPL 1.2"
+.UC 4 
+.SH NAME
+gpp \- a program for plotting graphs
+.SH SYNOPSIS
+.B gpp
+[
+.B \-l<d>
+] [
+.B \-s <s1> <s2>
+] [
+.B \-r<fact>
+] [
+.B \-S
+] [
+.B \-P
+]
+.br
+[
+.B \-G
+] [
+.B \-c
+] [
+.B \-m<n>
+] [
+.B \-w<n>
+] [
+.B \-g
+] [
+.B \-p<n>
+] [
+.B \-L
+]
+.br
+[
+.B \-x xmin xmax
+] [
+.B \-y ymin ymax
+] [
+.B \-X
+] [
+.B \-Y
+] [
+.B \-Mx<n>
+]
+.br 
+[
+.B \-My<n>
+] [
+.B \-D
+] [
+.B \-f<fontname>
+] [
+.B \-d<device>
+]
+.B file or -
+
+.SH DESCRIPTION
+This program displays multiple graphs with various curve fitting
+and axis options.
+.\" Options mentioned in-line
+The following options are available:
+
+.TP
+.B \-l<d>
+Perform a least square fit of degree "d" on each curve.
+
+.TP
+.B \-s <s1> <s2>
+Perform a cubic spline fit on each curve, with end 
+.B slopes s1 and s2 
+(Ie. a clamped spline)
+
+.TP
+.B \-r <fact>
+Reduce (if fact < 1.0) or enlarge (if fact > 1.0) the entire plot.
+
+.TP
+.B \-S
+Perform a cubic spline fit on each curve using a cardinal
+spline and the 
+.IR VOGLE(3) 
+routine curve().
+The end slopes are calculated as the tangent to the curve
+formed by the lines connecting the first and second points
+and the last and next to last points.
+
+.TP
+.B \-P
+Perform a power equation fit on each curve.
+
+.TP
+.B \-G
+Perform a saturated growth rate fit on each curve.
+
+.TP
+.B \-m<n>
+Place a marker at every "n"th data point on each curve.
+
+.TP
+.B \-g<n>
+Place a grid over the graph, with grid spacing of every nth tickmark.
+
+.TP
+.B \-p<n>
+Draws only markers at every <n>th data point
+
+.TP
+.B \-L
+Print legends if they are provided.
+
+.TP
+.B "\-x xmin xmax"
+Specify absolute x scaling values. This option by-passes the
+auto-scaling of the x-axis values.
+
+.TP
+.B "\-y ymin ymax"
+Specify absolute y scaling values. This option by-passes the
+auto-scaling of the y-axis values.
+
+.TP
+.B \-X
+Draw the X-axis using a 
+.IR logarithmic
+scale.
+
+.TP
+.B \-Y
+Draw the Y-axis using a 
+.IR logarithmic
+scale.
+
+.TP
+.B \-Mx<n>
+Sets the number of minor tickmarks between (and including) major tickmarks 
+along the X axis.
+
+.TP
+.B \-My<n>
+Sets the number of minor tickmarks between (and including) major tickmarks 
+along the Y axis.
+
+.TP
+.B \-D
+Each trace is drawn with a different linestyle (up to seven linestyles are
+available).
+
+.TP
+.B \-f<fontname>
+Use font name fontname where fontname is any font available in the
+.IR VOGLE(3)
+library.
+
+.TP
+.B \-d<device>
+Use the output device "device". These are the devices compiled
+into the
+.IR VOGLE(3)
+library. Some examples are: postscript, hpgl, tek, sun etc.
+
+.TP
+.B file
+The name of the input file. If it is a minus '-' stdin is assumed.
+.LP
+The input file contains two lines at the
+type which describe the graph. The first line gives the title, and
+the second line the type. At the moment the only type supported is
+"xy". The axes titles appropriate to the type of the graph are on the
+lines following the type statement. After the axes titles the first
+legend title is given followed by an axes descriptor on the next line.
+gpp then reads in points appropriate to the axes descriptor until it
+reaches a plot statement. This tells it to save the current points as a
+seperate plot. It then looks for another legend followed by an axes
+statement, and the cycle continues. Legends and titles may be blank
+lines.
+.nf
+
+	A title for the graph
+	type xy
+	A title for the x-axis
+	A title for the y-axis
+	legend for the first plot
+	axes xy
+	x y
+	x y 
+	. .
+	. .
+	plot xy
+	legend for the second plot
+	axes x
+	x
+	x
+	. 
+	.
+	plot xy
+
+.SH FILES
+/usr/local/lib/hershey/* 	Font files.
+.SH SEE ALSO
+.IR VOGLE(3),
+.IR VOPL(3).
+.SH BUGS
+There are too many options.
+There may be only 1024 points per trace.
+Interpretation of Endslopes for splines when using logarithmic
+scalings is Sketchy.
+

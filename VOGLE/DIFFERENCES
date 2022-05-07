@@ -1,0 +1,49 @@
+VOGLE 1.3.0 has the following differences from 1.2.3
+
+There are new Hershey text justification routines.
+There is now a facility for general linestyles.
+There is now a colour postscript driver (I dunno why there wasn't
+always one!).
+
+VOGLE 1.2.3 has the following differences from 1.2.2
+
+You can now specify an X11 toolkit window for vogle to draw into.
+
+VOGLE 1.2.2 has the following differences from 1.2.1
+
+A "syncing" function has been added. On devices such as X11 and NeXT
+the display is not automatically Syncronized after each primitive is
+drawn, rather it is done after completion of whole sets of primitives.
+Eg. patches and objects - a sync is done only after the while thing has
+been drawn - not after each draw within the patch or object.
+
+VOGLE 1.2.1 has the following differences from 1.2
+
+There is now a SUN Pascal interface.
+
+VOGLE 1.2 has the following differences from 1.1
+
+Library:
+	Speed up the transforms by directly (in place) multipling
+	maticies on the top of the stack.
+
+VOGLE 1.1 has the following differences from 1.0:
+
+Drivers:
+	These have been extended to incorporate double
+	buffering, the X11 driver should now work
+	under anything (exception a dec workstation
+	use decX11), the sun driver refreshes the window
+	if it erased.
+
+Library:
+	Routines for doing backfacing, doublebuffering,
+	positioning and sizing of windows (where it is allowed),
+	getting info about the screen aspect ratio, specifying
+	a world up vector, reading in a string of input have
+	been added (it is best to look at the manual page for
+	these).
+
+Examples:
+	There are some new examples demonstrating, position
+	calls, backfacing, and doublebuffering.

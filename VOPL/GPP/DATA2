@@ -1,0 +1,17 @@
+This is an example for gpp(1) using -X and -Y
+type xy
+This is the x-axis
+This is the y-axis
+x vs y1
+axes xy
+1 10
+200 30
+3000 50
+4000 70
+5000 90
+6000 150
+7000 120
+9000 100
+10000 1
+100000 500
+plot xy

@@ -1,0 +1,117 @@
+
+
+
+VOPL(3)                C LIBRARY FUNCTIONS                VOPL(3)
+
+
+
+NAME
+     VOPL - A very ordinary plotting library.
+
+
+DESCRIPTION
+     VOPL is a library of C routines for doing  graph  plots.  It
+     handles  the  a  variety of fits and scalings, together with
+     providing  defaults  for  positioning  graph  titles,   axis
+     titles, and labels. VOPL may be called from C or FORTRAN.
+
+     adjustscale(float *points, int number, char axis)
+          Adjust the auto scaling on axis axis for the points  in
+          points.
+
+
+     range(float min, float max, char axis)
+          Specify the range min to max for the axis axis.
+
+
+     graphtitle(char *title)
+          Specify the title for the graph.
+
+
+     drawtitle()
+          Draw the graph title. Note: this is done by  drawaxes2,
+          and drawaxes.
+
+
+     axistitle(char *title, char axis)
+          Specify the title for the axis axis.
+
+               
+     plot2(float *x, float *y, int n)
+          Plot the n points in the array x and y.
+
+
+     fit(int type)
+          Specify the fit type used to  plot  the  data.  Default
+          straight line fit.
+
+               Current fit types are:
+
+                    0    -    No lines at all.
+                    1    -    Straight line fit.
+                    2    -    Cubic spline fit.
+                    3    -    Least squares fit.
+                    4    -    Power equation fit.
+                    5    -    Saturated growth rate fit.
+
+
+     scaling(int type, char axis)
+          Specify the scaling type for axis axis. Default linear.
+
+               Current scaling types are 0 for linear scaling,
+                                         1 for logarithmic scaling.
+
+
+     endslopes(float a, float b)
+          Specify the endslopes for a cubic spline fit.
+
+
+     degree(int deg)
+          Specify the degree for the least-squares  fit.  Default
+          3.
+
+
+     gridspacing(int n, char axis)
+          Specify at what n'th tickmarks the grid should be drawn
+          at. Default zero (no grid).
+
+
+     tickmarks(int number, char axis)
+          Specify the number of tickmarks on the axis axis.
+
+
+     drawaxis(char *axis)
+          Draw the axis given by axis.
+
+
+     drawaxes()
+          Draw the x, y, and z axes.
+
+
+     drawaxes2()
+          Draw the x and y axes.
+
+
+     annotation(char *format, char axis)
+          Specify the format for the labels at the  tickmarks  on
+          the  axis. If no annotation is specified the default is
+          used. An empty string turns it off.
+
+
+     graphprecision(int number)
+          Specify the number of line segments making up  a  curve
+          in the graph.
+
+
+     marker(char *string)
+          Specify the current marker string which will  be  drawn
+          centered over data points.
+
+
+     markerspacing(int num)
+          Specify the marker spacing. Default 1.
+
+
+     markerscale(float scale)
+          Specify a scaling  factor  for  the  size  of  markers.
+          Default 1.0.

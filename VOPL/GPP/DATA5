@@ -1,0 +1,17 @@
+A saturation growth rate fit
+type xy
+the x-axis
+the y-axis
+x vs y1
+axes xy
+5 17 
+10 25
+15 30 
+20 33
+25 36
+30 38
+35 39
+40 40
+45 41
+50 42
+plot xy
