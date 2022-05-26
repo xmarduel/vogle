@@ -10,3 +10,5 @@ Note that the **python wrappers** had only been made for MACOS and python-2.7 (w
 But it should be easy to update with a newer version of python and swig. The related makefiles must be updated.
 
 The **vogle** and **vopl** libraries are not built nor there are makefiles because all of this used to be bundled inside a XCode project
+
+Original homepage: https://www.autochthonous.org/eric/
