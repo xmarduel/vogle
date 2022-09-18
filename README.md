@@ -1,6 +1,6 @@
 # vogle graphic library
 In the beginnings of 2000 (yes), I used to work with the vogle graphic library **version 2.0b**.
-The main improvement over the previous verison (**version 1.3**) was the support for multiple windows.
+The main improvement over the previous version (**version 1.3**) was the support for multiple windows.
 
 The **vopl** plotting lib (based on **vogle**) had not yet reached the 2.0 level, so I did it at the time.
 I added many things in **vopl** (ex: subpanel handling ala pgplot, countour on ucd mesh etc), so I named
